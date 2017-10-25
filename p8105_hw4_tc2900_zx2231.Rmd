@@ -1,0 +1,59 @@
+---
+title: "p8105_hw4_zx2231_tc2900_problem_1"
+author: "Zenghui Xue"
+date: "October 24, 2017"
+output: html_document
+---
+
+**In Problem 1, Zenghui Xue (zx2231) leads and Shaoxuan Chen (tc2900) collaborates. **
+
+```{r load_package, message=FALSE, echo = FALSE}
+library(tidyverse)
+library(readr)
+library(readxl)
+library(haven)
+library(dplyr)
+library(janitor)
+library(knitr)
+library(zoo)
+library(DT)
+library(ggridges)
+```
+
+####1.The following code chunk convert the pups data from "wide" format to "long" format, and shows the first six rows.
+```{r wrangling, message = FALSE}
+pups_data = (read_csv("./FAS_pups.csv", col_types = "ciiiii") %>%
+  clean_names())
+names(pups_data) = sub("pd_", "", names(pups_data))
+pups_data = data.frame(pups_data %>%
+  gather(key = pd_landmark, value = pd_outcome, ears:walk) %>%
+  na.omit() %>%
+  mutate(sex = recode(sex, `1` = "male", `2` = "female")))
+head(pups_data)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
