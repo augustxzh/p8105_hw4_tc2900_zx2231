@@ -33,8 +33,6 @@ head(pups_data)
 
 ```{r}
 pups_data %>% 
- group_by(pd_landmark, pd_outcome) %>% 
-  summarize(number = n()) %>% 
   ggplot(aes(x= pd_outcome, y = pd_landmark, fill = pd_landmark)) +
   geom_density_ridges(scale = .77) +
 labs(
@@ -47,7 +45,7 @@ labs(
 
 
 
-* From the plot, we can see that the development of ears centralized in 3-5 days, and the development of eyes centralized in 13-15 days. The development of walk and pivot cluster between 7.5-12.5 days and 5-10 days, respectively.
+* From the plot, we can see that the development of ears centralized in the 4th day, and the development of eyes centralized in the 13th day. The development of walk and pivot cluster between 8-12 days and 5-10 days, respectively.
 
 * The reason of the distribution is that the development time of pups' body vary from parts to parts. But most of the pups development time close to each other.
 
